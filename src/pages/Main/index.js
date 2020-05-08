@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { FaSearch, FaSpinner } from 'react-icons/fa';
+import { FaRocket, FaSpinner } from 'react-icons/fa';
 
 import api from '../../services/api';
 import Image from '../../components/Image';
@@ -47,7 +47,7 @@ function Main() {
             {loading ? (
               <FaSpinner color="#fff" size={14} />
             ) : (
-              <FaSearch color="#fff" size={14} />
+              <FaRocket color="#fff" size={14} />
             )}
           </SubmitButton>
         </Form>
