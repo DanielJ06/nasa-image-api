@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import './styles';
+
 import { FaRocket, FaSpinner } from 'react-icons/fa';
 
 import api from '../../services/api';
@@ -11,6 +15,7 @@ import {
   Form
 } from './styles';
 
+toast.configure()
 function Main() {
   const [data, setData] = useState([]);
   const [keyword, setKeyword] = useState('');
@@ -21,8 +26,11 @@ function Main() {
     setLoading(true)
     try {
       const res = await api.get(`/search?q=${keyword}&media_type=image&year_end=1999`);
-      //console.log(res.data.collection.items);
-      setData(res.data.collection.items);
+      if (res.data.collection.items.length > 0) {
+        setData(res.data.collection.items);
+      } else {
+        toast('Test')
+      } 
       setLoading(false);
     } catch(error) {
       console.log('tá');
