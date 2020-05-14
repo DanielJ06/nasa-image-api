@@ -29,11 +29,11 @@ function Main() {
       if (res.data.collection.items.length > 0) {
         setData(res.data.collection.items);
       } else {
-        toast('Test')
+        toast.error('Something went wrong! Try a new keyword')
       } 
       setLoading(false);
     } catch(error) {
-      console.log('tá');
+      console.log(error);
     }
   }
 
